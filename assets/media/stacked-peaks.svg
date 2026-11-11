@@ -1,1 +1,42 @@
-<svg id="visual" viewBox="0 0 960 540" width="960" height="540" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><path d="M0 104L87 158L175 125L262 131L349 163L436 163L524 168L611 174L698 136L785 104L873 125L960 147L960 0L873 0L785 0L698 0L611 0L524 0L436 0L349 0L262 0L175 0L87 0L0 0Z" fill="#003223"></path><path d="M0 185L87 195L175 212L262 217L349 206L436 239L524 233L611 222L698 185L785 147L873 190L960 190L960 145L873 123L785 102L698 134L611 172L524 166L436 161L349 161L262 129L175 123L87 156L0 102Z" fill="#013b2d"></path><path d="M0 228L87 249L175 287L262 309L349 303L436 336L524 298L611 282L698 260L785 255L873 287L960 255L960 188L873 188L785 145L698 183L611 220L524 231L436 237L349 204L262 215L175 210L87 193L0 183Z" fill="#014537"></path><path d="M0 357L87 395L175 347L262 368L349 428L436 449L524 363L611 390L698 352L785 379L873 368L960 401L960 253L873 285L785 253L698 258L611 280L524 296L436 334L349 301L262 307L175 285L87 247L0 226Z" fill="#024f42"></path><path d="M0 541L87 541L175 541L262 541L349 541L436 541L524 541L611 541L698 541L785 541L873 541L960 541L960 399L873 366L785 377L698 350L611 388L524 361L436 447L349 426L262 366L175 345L87 393L0 355Z" fill="#02594e"></path></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a3030"></stop>
+      <stop offset="1" stop-color="#0f6f66"></stop>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b8f7ee" stop-opacity="0.0"></stop>
+      <stop offset="0.5" stop-color="#b8f7ee" stop-opacity="0.35"></stop>
+      <stop offset="1" stop-color="#b8f7ee" stop-opacity="0.0"></stop>
+    </linearGradient>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#bg)"></rect>
+
+  <!-- subtle diagonal lines -->
+  <g stroke="#b8f7ee" stroke-opacity="0.12" stroke-width="2">
+    <path d="M-200,980 L380,340"></path>
+    <path d="M-100,1080 L540,340"></path>
+    <path d="M80,1080  L720,340"></path>
+    <path d="M260,1080 L900,340"></path>
+    <path d="M440,1080 L1080,340"></path>
+    <path d="M620,1080 L1260,340"></path>
+    <path d="M800,1080 L1440,340"></path>
+    <path d="M980,1080 L1620,340"></path>
+    <path d="M1160,1080 L1800,340"></path>
+    <path d="M1340,1080 L1980,340"></path>
+  </g>
+
+  <!-- classical double-sided lamp post -->
+  <g>
+    <rect x="1857" y="185" width="12" height="775" rx="2" fill="#ddfff8" opacity="0.8"/>
+    <rect x="1838" y="185" width="50" height="775" fill="url(#line)"/>
+    <rect x="1852" y="165" width="22" height="10" rx="3" fill="#ddfff8"/>
+    <path d="M1863 175 C1840 175 1834 160 1832 148" stroke="#ddfff8" stroke-width="4" fill="none"/>
+    <path d="M1863 175 C1886 175 1892 160 1894 148" stroke="#ddfff8" stroke-width="4" fill="none"/>
+    <rect x="1822" y="132" width="20" height="24" rx="3" fill="#fff" opacity="0.95"/>
+    <rect x="1884" y="132" width="20" height="24" rx="3" fill="#fff" opacity="0.95"/>
+    <circle cx="1832" cy="144" r="18" fill="#b8f7ee" opacity="0.12"/>
+    <circle cx="1894" cy="144" r="18" fill="#b8f7ee" opacity="0.12"/>
+  </g>
+</svg>

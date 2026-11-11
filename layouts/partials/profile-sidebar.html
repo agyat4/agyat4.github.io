@@ -1,0 +1,53 @@
+{{/* Profile sidebar shown on inner pages: photo, name, and contact links from the admin author profile, on the cover background */}}
+
+{{ $person_page := site.GetPage "/authors/admin" }}
+{{ if $person_page }}
+{{ $person := $person_page.Params }}
+{{ $avatar := ($person_page.Resources.ByType "image").GetMatch "*avatar*" }}
+{{ $bg := resources.Get "media/stacked-peaks.svg" }}
+
+<aside class="profile-sidebar dark" {{ with $bg }}style="background-image: url('{{ .RelPermalink }}');"{{ end }}>
+  <div class="profile-sidebar-inner">
+    {{ with $avatar }}
+      {{ $avatar_image := .Fill "500x500 Center" }}
+      <a href="{{ site.Home.RelPermalink }}" class="profile-sidebar-avatar">
+        <img src="{{ $avatar_image.RelPermalink }}" alt="{{ $person_page.Title }}"
+             width="{{ $avatar_image.Width }}" height="{{ $avatar_image.Height }}">
+      </a>
+    {{ end }}
+
+    <div class="profile-sidebar-name">
+      {{- if $person.name_pronunciation -}}
+        <ruby>
+          <rb>{{ $person_page.Title }}</rb>
+          <rt>{{ $person.name_pronunciation }}</rt>
+        </ruby>
+      {{- else -}}
+        {{- $person_page.Title -}}
+      {{- end -}}
+    </div>
+
+    {{ with $person.role }}<div class="profile-sidebar-role">{{ . | markdownify | emojify }}</div>{{ end }}
+
+    <ul class="network-icon profile-sidebar-links">
+      {{ range $person.profiles }}
+      {{ $link := .url | default .link }}
+      {{ $scheme := (urls.Parse $link).Scheme }}
+      {{ $target := "" }}
+      {{ if not $scheme }}
+        {{ $link = $link | relLangURL }}
+        {{ if eq (path.Ext $link) ".pdf" }}{{ $target = "target=\"_blank\" rel=\"noopener\"" }}{{ end }}
+      {{ else if in (slice "http" "https") $scheme }}
+        {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
+      {{ end }}
+      <li>
+        <a href="{{ $link | safeURL }}" {{ $target | safeHTMLAttr }} aria-label="{{ .label | default .icon }}"
+           {{ with .label }}title="{{ . }}"{{ end }}>
+          {{ partial "functions/get_icon" (dict "name" .icon "attributes" "style=\"height: 1.2rem; width: 1.2rem;\"") }}
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+</aside>
+{{ end }}

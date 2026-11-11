@@ -1,0 +1,501 @@
+.resume-biography .avatar-wrapper {
+  width: auto;
+  height: auto;
+  width: 240px !important;
+  height: 240px !important;
+  margin-bottom: -30px !important;
+  transform: translateX(-4px);
+}
+
+.resume-biography .avatar {
+  width: 240px !important;
+  height: 240px !important;
+  max-width: 240px !important;
+  max-height: 240px !important;
+}
+
+/* Shrink the vertical gap between Recent News items and above the list */
+#news .space-y-16 {
+  margin-top: 0 !important;
+}
+
+#news .space-y-16 > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 1rem !important;
+  margin-bottom: 0 !important;
+}
+
+#news .mt-16,
+#news .sm\:mt-20 {
+  margin-top: 1.5rem !important;
+}
+
+/* ---------- Profile sidebar on inner pages ---------- */
+.page-with-sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-main-column {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-body-main {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.profile-sidebar {
+  background-color: #0a3030;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+}
+
+.profile-sidebar-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
+}
+
+.profile-sidebar-avatar img {
+  display: block;
+  width: 180px;
+  height: 180px;
+  border-radius: 9999px;
+  object-fit: cover;
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 3px solid rgba(15, 23, 42, 0.6);
+}
+
+.profile-sidebar-name {
+  margin-top: 1.25rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.profile-sidebar-name rt {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding-bottom: 0.25rem;
+}
+
+.profile-sidebar-role {
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.profile-sidebar-links {
+  margin-top: 0.75rem;
+  color: #fff;
+}
+
+.profile-sidebar-links li {
+  transition: transform 0.15s ease;
+}
+
+/* Phones/tablets: compact band above the page content */
+@media (max-width: 1023px) {
+  .profile-sidebar-inner {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem 1.25rem;
+    padding: 1.25rem 1rem;
+  }
+  .profile-sidebar-avatar img {
+    width: 72px;
+    height: 72px;
+  }
+  .profile-sidebar-name {
+    margin-top: 0;
+    font-size: 1.2rem;
+  }
+  .profile-sidebar-links {
+    margin-top: 0;
+  }
+}
+
+/* Desktop: fixed-width column on the left that runs the full page height,
+   with its contents pinned below the sticky navbar while scrolling */
+@media (min-width: 1024px) {
+  .page-with-sidebar {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  .profile-sidebar {
+    flex: 0 0 300px;
+    width: 300px;
+  }
+  .profile-sidebar-inner {
+    position: sticky;
+    top: 5.5rem;
+    padding-top: 3rem;
+  }
+}
+
+/* Contact icons in a single horizontal row (theme only styles these inside the homepage bio) */
+.profile-sidebar-links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.9rem;
+  list-style: none;
+  padding: 0;
+}
+
+.profile-sidebar-links li {
+  margin: 0;
+}
+
+.profile-sidebar-links li:hover {
+  transform: scale(1.2);
+}
+
+.profile-sidebar-links a {
+  display: flex;
+  color: #fff;
+}
+
+
+/* ---------- Skills & Experience page (layouts/partials/blox/skills-experience.html) ---------- */
+.se-page {
+  --se-text: #111827;
+  --se-muted: #4b5563;
+  --se-border: #d1d5db;
+  --se-surface: #ffffff;
+  --se-tag-bg: #f3f4f6;
+  --se-accent: #047857;
+  --se-accent-text: #ffffff;
+  --se-focus: #047857;
+  --se-dot-published: #15803d;
+  --se-dot-project: #1d4ed8;
+  --se-dot-learned: #9ca3af;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+  color: var(--se-text);
+}
+
+.dark .se-page {
+  --se-text: #f3f4f6;
+  --se-muted: #d1d5db;
+  --se-border: #4b5563;
+  --se-surface: #1f2937;
+  --se-tag-bg: #374151;
+  --se-accent: #6ee7b7;
+  --se-accent-text: #052e22;
+  --se-focus: #6ee7b7;
+  --se-dot-published: #4ade80;
+  --se-dot-project: #60a5fa;
+  --se-dot-learned: #9ca3af;
+}
+
+.se-header {
+  margin-bottom: 2rem;
+}
+
+.se-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.se-help {
+  margin-top: 0.5rem;
+  color: var(--se-muted);
+}
+
+.se-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin-top: 0.75rem;
+  padding: 0;
+  list-style: none;
+  font-size: 0.8125rem;
+  color: var(--se-muted);
+}
+
+.se-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.se-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 250px;
+  gap: 3rem;
+  align-items: start;
+}
+
+.se-h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.se-h3 {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--se-muted);
+  margin-bottom: 0.5rem;
+}
+
+.se-group + .se-group {
+  margin-top: 2rem;
+}
+
+.se-subtitle {
+  font-size: 0.875rem;
+  color: var(--se-muted);
+  margin: -0.25rem 0 1.25rem;
+}
+
+.se-timeline {
+  margin-left: 0.75rem;
+}
+
+.se-entry {
+  margin-bottom: 2rem;
+  transition: opacity 0.2s ease;
+}
+
+.se-entry:last-child {
+  margin-bottom: 0.5rem;
+}
+
+.se-filtering .se-entry[data-skills]:not(.se-match) {
+  opacity: 0.35;
+}
+
+.se-entry-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0 1rem;
+}
+
+.se-entry-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.se-grade {
+  font-weight: 400;
+  color: var(--se-muted);
+}
+
+.se-entry-dates {
+  font-size: 0.8125rem;
+  font-style: italic;
+  color: var(--se-muted);
+  white-space: nowrap;
+}
+
+.se-entry-context,
+.se-entry-venue {
+  font-size: 0.875rem;
+  color: var(--se-muted);
+  margin-top: 0.15rem;
+}
+
+.se-entry-venue a {
+  color: var(--se-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.se-entry-desc {
+  margin: 0.5rem 0 0;
+  padding-left: 1.1rem;
+  list-style: disc;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+.se-entry-desc li + li {
+  margin-top: 0.25rem;
+}
+
+.se-divider {
+  margin: 2.5rem 0 2rem;
+  border: 0;
+  border-top: 1px solid var(--se-border);
+}
+
+/* Skill tags on each entry */
+.se-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.6rem;
+}
+
+.se-tag {
+  font-size: 0.75rem;
+  line-height: 1.2;
+  padding: 0.2rem 0.55rem;
+  border-radius: 0.375rem;
+  border: 1px solid transparent;
+  background: var(--se-tag-bg);
+  color: var(--se-text);
+  cursor: pointer;
+}
+
+.se-tag:hover {
+  border-color: var(--se-accent);
+}
+
+/* Skills column */
+.se-skills-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.se-clear {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.2rem 0.7rem;
+  border-radius: 9999px;
+  border: 1px solid var(--se-accent);
+  color: var(--se-accent);
+  background: transparent;
+  cursor: pointer;
+}
+
+.se-clear[hidden] {
+  display: none;
+}
+
+.se-status {
+  min-height: 1.25rem;
+  font-size: 0.8125rem;
+  color: var(--se-muted);
+  margin: -0.5rem 0 0.75rem;
+}
+
+.se-skill-group + .se-skill-group {
+  margin-top: 1.25rem;
+}
+
+.se-capsules {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.se-cap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8125rem;
+  line-height: 1.2;
+  padding: 0.3rem 0.7rem;
+  border-radius: 9999px;
+  border: 1px solid var(--se-border);
+  background: var(--se-surface);
+  color: var(--se-text);
+}
+
+button.se-cap {
+  cursor: pointer;
+}
+
+button.se-cap:hover {
+  border-color: var(--se-accent);
+}
+
+.se-cap--static {
+  border-style: dashed;
+  background: transparent;
+  color: var(--se-muted);
+  cursor: default;
+}
+
+.se-cap--sample {
+  padding: 0.05rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+.se-cap[aria-pressed="true"],
+.se-tag[aria-pressed="true"] {
+  background: var(--se-accent);
+  border-color: var(--se-accent);
+  color: var(--se-accent-text);
+}
+
+.se-cap[aria-pressed="true"] .se-dot {
+  box-shadow: 0 0 0 1.5px var(--se-accent-text);
+}
+
+.se-cap:focus-visible,
+.se-tag:focus-visible,
+.se-clear:focus-visible,
+.se-entry-venue a:focus-visible {
+  outline: 2px solid var(--se-focus);
+  outline-offset: 2px;
+}
+
+.se-dot {
+  display: inline-block;
+  flex: none;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 9999px;
+}
+
+.se-dot--published { background: var(--se-dot-published); }
+.se-dot--project { background: var(--se-dot-project); }
+.se-dot--learned { background: var(--se-dot-learned); }
+
+/* Stack below ~1100px viewport (the profile sidebar takes 300px of the width on desktop) */
+@media (max-width: 1099px) {
+  .se-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+  .se-skills {
+    order: -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .se-page {
+    padding: 0 1rem 2rem;
+  }
+  .se-title {
+    font-size: 1.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .se-entry {
+    transition: none;
+  }
+}
+
+/* Keep entry dates pinned to the right of the title on wider screens */
+@media (min-width: 641px) {
+  .se-entry-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+}

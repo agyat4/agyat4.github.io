@@ -1,0 +1,23 @@
+# Hugo build output and caches
+public/
+resources/_gen/
+.hugo_build.lock
+hugo_stats.json
+
+# Local-only files
+hist.txt
+*.tar.gz
+prasiddha_headshot.png
+*Zone.Identifier
+
+# OS / editor
+.DS_Store
+Thumbs.db
+
+# Local tooling / archives
+.claude/
+*.zip
+
+# Not for the public repo: Hugo source license copied in by mistake, old profile photos
+/LICENSE
+content/authors/admin/*_old.*

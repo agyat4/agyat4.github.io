@@ -1,0 +1,129 @@
+{{/* Skills & Experience block: experience/education timelines plus a filterable skills column, all generated from data/skills.yaml */}}
+
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+{{ $data := site.Data.skills }}
+
+{{/* Skill id -> label, and the set of skill ids used by at least one experience entry */}}
+{{ $labels := dict }}
+{{ range $data.skill_groups }}
+  {{ range .skills }}{{ $labels = merge $labels (dict .id .label) }}{{ end }}
+{{ end }}
+{{ $used := slice }}
+{{ range $data.experience_groups }}
+  {{ range .entries }}{{ $used = $used | append .skills }}{{ end }}
+{{ end }}
+{{ $used = $used | uniq }}
+
+<div class="se-page" data-se-page>
+
+  <header class="se-header">
+    <h1 class="se-title">{{ $block.content.title | default "Skills & Experience" }}</h1>
+    {{ with $block.content.text }}<p class="se-help">{{ . | markdownify }}</p>{{ end }}
+    <ul class="se-legend" aria-label="Legend">
+      <li><span class="se-dot se-dot--published" aria-hidden="true"></span>Used in published work</li>
+      <li><span class="se-dot se-dot--project" aria-hidden="true"></span>Built in a project</li>
+      <li><span class="se-dot se-dot--learned" aria-hidden="true"></span>Learned on the side</li>
+      <li><span class="se-cap se-cap--static se-cap--sample" aria-hidden="true">dashed</span>No linked experience</li>
+    </ul>
+  </header>
+
+  <div class="se-layout">
+
+    <div class="se-main">
+      <h2 class="se-h2">Experience</h2>
+
+      {{ range $data.experience_groups }}
+      <section class="se-group">
+        <h3 class="se-h3">{{ .name }}</h3>
+        {{ with .subtitle }}<p class="se-subtitle">{{ . }}</p>{{ end }}
+        <ol class="relative border-s border-gray-200 dark:border-gray-700 se-timeline">
+          {{ range .entries }}
+          <li class="ms-6 se-entry" data-skills="{{ delimit .skills " " }}">
+            <span class="absolute flex items-center justify-center w-6 h-6 bg-primary-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-primary-900">
+              {{ partial "functions/get_icon" (dict "name" (.icon | default "briefcase") "attributes" "class=\"w-4 h-4 text-primary-800 dark:text-primary-300\" aria-hidden=\"true\"") }}
+            </span>
+            <div class="se-entry-head">
+              <h4 class="se-entry-title">{{ .title }}</h4>
+              <span class="se-entry-dates">{{ .dates }}</span>
+            </div>
+            {{ with .context }}<p class="se-entry-context">{{ . }}</p>{{ end }}
+            {{ with .venue }}<p class="se-entry-venue"><a href="{{ .url }}" target="_blank" rel="noopener">{{ .label }}</a></p>{{ end }}
+            {{ with .description }}
+            <ul class="se-entry-desc">
+              {{ range . }}<li>{{ . | markdownify }}</li>{{ end }}
+            </ul>
+            {{ end }}
+            {{ with .skills }}
+            <div class="se-tags" role="group" aria-label="Skills used">
+              {{ range . }}
+              <button type="button" class="se-tag" data-skill="{{ . }}" aria-pressed="false">{{ index $labels . | default . }}</button>
+              {{ end }}
+            </div>
+            {{ end }}
+          </li>
+          {{ end }}
+        </ol>
+      </section>
+      {{ end }}
+
+      <hr class="se-divider">
+
+      <h2 class="se-h2">Education</h2>
+      <ol class="relative border-s border-gray-200 dark:border-gray-700 se-timeline">
+        {{ range $data.education }}
+        <li class="ms-6 se-entry se-entry--edu">
+          <span class="absolute flex items-center justify-center w-6 h-6 bg-primary-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-primary-900">
+            {{ partial "functions/get_icon" (dict "name" "academic-cap" "attributes" "class=\"w-4 h-4 text-primary-800 dark:text-primary-300\" aria-hidden=\"true\"") }}
+          </span>
+          <div class="se-entry-head">
+            <h4 class="se-entry-title">{{ .degree }}{{ with .grade }} <span class="se-grade">({{ . }})</span>{{ end }}</h4>
+            <span class="se-entry-dates">{{ .dates }}</span>
+          </div>
+          <p class="se-entry-context">{{ .institution }}</p>
+        </li>
+        {{ end }}
+      </ol>
+    </div>
+
+    <aside class="se-skills" aria-labelledby="se-skills-heading">
+      <div class="se-skills-head">
+        <h2 class="se-h2" id="se-skills-heading">Skills</h2>
+        <button type="button" class="se-clear" data-se-clear hidden>Clear</button>
+      </div>
+      <p class="se-status" data-se-status aria-live="polite"></p>
+
+      {{ range $data.skill_groups }}
+      <div class="se-skill-group">
+        <h3 class="se-h3">{{ .name }}</h3>
+        <div class="se-capsules">
+          {{ range .skills }}
+            {{ if in $used .id }}
+            <button type="button" class="se-cap" data-skill="{{ .id }}" aria-pressed="false">
+              <span class="se-dot se-dot--{{ .basis }}" aria-hidden="true"></span>{{ .label }}
+            </button>
+            {{ else }}
+            <span class="se-cap se-cap--static" title="No linked experience">
+              <span class="se-dot se-dot--{{ .basis }}" aria-hidden="true"></span>{{ .label }}
+            </span>
+            {{ end }}
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+
+      {{ with $data.tools }}
+      <div class="se-skill-group">
+        <h3 class="se-h3">{{ .name }}</h3>
+        <div class="se-capsules">
+          {{ range .items }}<span class="se-cap se-cap--static">{{ . }}</span>{{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </aside>
+
+  </div>
+</div>
+
+{{ $js := resources.Get "js/skills-filter.js" | minify | fingerprint }}
+<script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>

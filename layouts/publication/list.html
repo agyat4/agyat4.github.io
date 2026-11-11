@@ -1,0 +1,30 @@
+{{ define "main" }}
+
+<div class="max-w-3xl mx-auto px-6 py-12">
+  <h1 class="text-4xl font-bold text-gray-900 dark:text-white">{{ .Title }}</h1>
+
+  {{ with .Params.scholar_url }}
+  <p class="mt-3 text-gray-600 dark:text-gray-400">
+    You can also find my articles on <a href="{{ . }}" target="_blank" rel="noopener" class="underline font-semibold text-gray-800 dark:text-gray-200">my Google Scholar profile</a>
+    {{ partial "functions/get_icon" (dict "name" "academicons/google-scholar" "attributes" "style=\"height: 1.1em; width: 1.1em;\" class='inline-block align-text-bottom ml-1'") }}.
+  </p>
+  {{ end }}
+
+  {{ $pages := .Pages.ByDate.Reverse }}
+  {{ $currentYear := "" }}
+  {{ range $pages }}
+    {{ $year := .Date.Format "2006" }}
+    {{ if ne $year $currentYear }}
+      {{ $currentYear = $year }}
+      <div class="mt-10 mb-2 first:mt-8">
+        <div class="text-xs font-semibold tracking-widest text-gray-400 dark:text-gray-500 uppercase">{{ $year }}</div>
+        <hr class="mt-2 border-gray-200 dark:border-gray-700">
+      </div>
+    {{ end }}
+    {{ partial "views/pub-card" (dict "item" .) }}
+  {{ end }}
+
+  {{ partial "components/paginator" . }}
+</div>
+
+{{ end }}

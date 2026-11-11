@@ -1,17 +1,16 @@
 ---
-# Display name
-title: 吳健雄
+# Display name (shown on your site, can be any script)
+title: Prasiddha Siwakoti
 
-# Name pronunciation (optional)
-name_pronunciation: Chien Shiung Wu
+# Name pronunciation (Latin script so readers know how to say it)
+name_pronunciation:  प्रसिद्ध  शिवाकोटी
 
-# Full name (for SEO)
-first_name: Shiung Wu
-last_name: Chien
-
+# Full name (used by search engines and schema data)
+first_name: Prasiddha 
+last_name: Siwakoti
 # Status emoji
 status:
-  icon: ☕️
+  icon: 
 
 # Is this the primary user of the site?
 superuser: true
@@ -20,167 +19,95 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: Chief Scientist
+role:  
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
-  - name: OpenAI
-    url: https://openai.com/
+  - name: 
+    url: 
 
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
   - icon: at-symbol
-    url: 'mailto:your-email@example.com'
+    url: 'mailto:prasiddha.siwakoti43@gmail.com'
     label: E-mail Me
-  - icon: brands/x
-    url: https://twitter.com/GetResearchDev
-  - icon: brands/instagram
-    url: https://www.instagram.com/
+  #- icon: brands/x
+  #  url: https://twitter.com/GetResearchDev
+  #- icon: brands/instagram
+  #  url: https://www.instagram.com/
   - icon: brands/github
-    url: https://github.com/gcushen
+    url: https://github.com/agyat4
   - icon: brands/linkedin
-    url: https://www.linkedin.com/
+    url: https://www.linkedin.com/in/sprasiddha/
   - icon: academicons/google-scholar
-    url: https://scholar.google.com/
-  - icon: academicons/orcid
-    url: https://orcid.org/
+    url: https://scholar.google.com/citations?user=u1ros4oAAAAJ&hl=en
+  #- icon: academicons/orcid
+  #  url: https://orcid.org/
 
 interests:
-  - Artificial Intelligence
-  - Computational Linguistics
-  - Information Retrieval
+  - Multimodal Representation Learning
+  - Visual Data Compression
+  - Structured & Similarity frameworks
+  - Probabilistic Forecasting
 
+# Education, work and awards below are from the CV. The Skills & Experience page itself is
+# generated from data/skills.yaml; these fields feed the homepage education list and author page.
 education:
-  - area: PhD Artificial Intelligence
-    institution: Stanford University
-    date_start: 2016-01-01
-    date_end: 2020-12-31
-    summary: |
-      Thesis on _Why LLMs are awesome_. Supervised by [Prof Joe Smith](https://example.com). Presented papers at 5 IEEE conferences with the contributions being published in 2 Springer journals.
-    button:
-      text: 'Read Thesis'
-      url: 'https://example.com'
-  - area: MEng Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    date_start: 2016-01-01
-    date_end: 2020-12-31
-    summary: |
-      GPA: 3.8/4.0
-
-      Courses included:
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - area: BSc Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    date_start: 2016-01-01
-    date_end: 2020-12-31
-    summary: |
-      GPA: 3.4/4.0
-      
-      Courses included:
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - area: Ph.D. in Electrical Engineering
+    institution: West Virginia University
+    summary: 'GPA: 4.0/4.0. Expected December 2027.'
+  - area: M.S. in Information and Communication Engineering
+    institution: Tribhuvan University
+    date_end: 2020-04-01
+    summary: 'Institute of Engineering, Nepal. 83.13%.'
+  - area: B.E. in Electronics and Communication Engineering
+    institution: Tribhuvan University
+    date_end: 2016-09-01
+    summary: 'Himalaya College of Engineering, Nepal. 74.51%.'
 work:
-  - position: Director of Cloud Infrastructure
-    company_name: GenCoin
-    company_url: ''
-    company_logo: ''
-    date_start: 2021-01-01
+  - position: Graduate Research Assistant
+    company_name: West Virginia University
+    date_start: 2024-01-01
     date_end: ''
     summary: |2-
-      Responsibilities include:
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - position: Backend Software Engineer
-    company_name: X
-    company_url: ''
-    company_logo: ''
-    date_start: 2016-01-01
-    date_end: 2020-12-31
-    summary: |
-      Responsibilities include:
-      - Migrated infrastructure to a new data center
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-
-# Skills
-# Add your own SVG icons to `assets/media/icons/`
-skills:
-  - name: Technical Skills
-    items:
-      - name: Python
-        description: ''
-        percent: 80
-        icon: code-bracket
-      - name: Data Science
-        description: ''
-        percent: 100
-        icon: chart-bar
-      - name: SQL
-        description: ''
-        percent: 40
-        icon: circle-stack
-  - name: Hobbies
-    color: '#eeac02'
-    color_border: '#f0bf23'
-    items:
-      - name: Hiking
-        description: ''
-        percent: 60
-        icon: person-simple-walk
-      - name: Cats
-        description: ''
-        percent: 100
-        icon: cat
-      - name: Photography
-        description: ''
-        percent: 80
-        icon: camera
+      Learned compression for NASA SDO solar imagery, conflict fatality forecasting, evaluation frameworks for spatiotemporal forecasting, quantum machine learning for social science prediction, and quantum dot emission analysis.
+  - position: Telecoms Engineer
+    company_name: Nepal Telecom
+    date_start: 2018-10-01
+    date_end: 2023-12-31
+    summary: |2-
+      - Network Operations & Automation (2021–2023): configured and optimized the nationwide backbone network; automated device configuration and recurring tasks using Python (Netmiko, Napalm, Nornir) across hundreds of nodes.
+      - Field Engineering (2018–2021): led teams for installation and configuration of national radio access infrastructure, microwave and optical fiber transmission systems, and associated power systems.
 
 languages:
-  - name: English
-    percent: 100
-  - name: Chinese
-    percent: 75
-  - name: Portuguese
-    percent: 25
+  - name: Nepali (Native)
+  - name: English (Fluent)
+  - name: Hindi (Fluent)
 
-# Awards.
-#   Add/remove as many awards below as you like.
-#   Only `title`, `awarder`, and `date` are required.
-#   Begin multi-line `summary` with YAML's `|` or `|2-` multi-line prefix and indent 2 spaces below.
 awards:
-  - title: Neural Networks and Deep Learning
-    url: https://www.coursera.org/learn/neural-networks-deep-learning
-    date: '2023-11-25'
-    awarder: Coursera
-    icon: coursera
-    summary: |
-      I studied the foundational concept of neural networks and deep learning. By the end, I was familiar with the significant technological trends driving the rise of deep learning; build, train, and apply fully connected deep neural networks; implement efficient (vectorized) neural networks; identify key parameters in a neural network’s architecture; and apply deep learning to your own applications.
-  - title: Blockchain Fundamentals
-    url: https://www.edx.org/professional-certificate/uc-berkeleyx-blockchain-fundamentals
-    date: '2023-07-01'
-    awarder: edX
-    icon: edx
-    summary: |
-      Learned:
-      - Synthesize your own blockchain solutions
-      - Gain an in-depth understanding of the specific mechanics of Bitcoin
-      - Understand Bitcoin’s real-life applications and learn how to attack and destroy Bitcoin, Ethereum, smart contracts and Dapps, and alternatives to Bitcoin’s Proof-of-Work consensus algorithm
-  - title: 'Object-Oriented Programming in R'
-    url: https://www.datacamp.com/courses/object-oriented-programming-with-s3-and-r6-in-r
-    certificate_url: https://www.datacamp.com
-    date: '2023-01-21'
-    awarder: datacamp
-    icon: datacamp
-    summary: |
-      Object-oriented programming (OOP) lets you specify relationships between functions and the objects that they can act on, helping you manage complexity in your code. This is an intermediate level course, providing an introduction to OOP, using the S3 and R6 systems. S3 is a great day-to-day R programming tool that simplifies some of the functions that you write. R6 is especially useful for industry-specific analyses, working with web APIs, and building GUIs.
+  - title: Winner, First National FPGA Design Competition
+    awarder: Nepal
+  - title: Merit Scholarship
+    awarder: Himalaya College of Engineering (B.E.)
+  - title: Merit Scholarship
+    awarder: Higher Secondary Education Board, Nepal
 ---
 
 ## About Me
 
-Chien Shiung Wu is a professor of artificial intelligence at the Stanford AI Lab. Her research interests include distributed robotics, mobile computing and programmable matter. She leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+
+
+<!--Figuring out what can go wrong when we deploy AI in real-world applications-->
+
+I am an EE PhD student at WVU and a Research Assistant working with [Dr. Ignacio Segovia-Dominguez](https://www.ignaciosd.com/). My current research focuses on similarity frameworks for comparing sets of distributions and, more broadly, on how complex data can be represented and compared.
+
+I am also interested in visual data compression and multimodal representation learning, specially methods that make use of the underlying structure in data.
+
+Before neural networks, I worked with a different kind of network, helping connect communities across the hills and mountains of Nepal as a telecoms engineer.
+
+
+<!-- This is a other good portfolio https://tichung.com/-->
+<!--https://github.com/HugoBlox/hugo-theme-developer-portfolio?tab=readme-ov-file-->
+
+<!--https://hugoblox.com/templates/resume-->

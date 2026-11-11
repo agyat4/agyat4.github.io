@@ -1,0 +1,165 @@
+# Single source for the Skills & Experience page (layouts/partials/blox/skills-experience.html).
+# Both columns are generated from this file: the skill capsules on the right and the
+# experience/education timelines on the left. An experience entry lists the skill ids it used;
+# capsules are clickable only when at least one entry uses them.
+#
+# basis: published = used in published work (green dot)
+#        project   = built in a project (blue dot)
+#        learned   = learned on the side, no linked experience (gray dot, dashed, not clickable)
+
+skill_groups:
+  - name: Languages
+    skills:
+      - { id: python, label: Python, basis: published }
+      - { id: cpp, label: C/C++, basis: learned }
+  - name: Libraries and frameworks
+    skills:
+      - { id: pytorch, label: PyTorch, basis: published }
+      - { id: hf, label: Hugging Face Transformers, basis: project }
+      - { id: sklearn, label: scikit-learn, basis: published }
+      - { id: h2o, label: H2O AutoML, basis: project }
+      - { id: qiskit, label: Qiskit, basis: published }
+  - name: ML concepts
+    skills:
+      - { id: compression, label: Learned image compression, basis: published }
+      - { id: gnn, label: Graph neural networks, basis: published }
+      - { id: vlm, label: Vision-language models, basis: project }
+      - { id: clustering, label: Clustering, basis: published }
+      - { id: forecasting, label: Spatiotemporal forecasting, basis: published }
+      - { id: automl, label: AutoML, basis: project }
+      - { id: qml, label: Quantum machine learning, basis: published }
+      - { id: diffusion, label: Diffusion models, basis: learned }
+      - { id: contrastive, label: Contrastive learning, basis: learned }
+
+# Tools are always dashed, not clickable and have no basis dot.
+tools:
+  name: Tools and compute
+  items: [Linux, SLURM and HPC, Claude Code, Codex]
+
+experience_groups:
+  - name: Research & academia
+    subtitle: Graduate Research Assistant, West Virginia University · Jan 2024 – Present
+    entries:
+      - id: qml-social
+        icon: beaker
+        title: Quantum Machine Learning for Conflict Fatality and Romantic Relationship Prediction
+        dates: "2026"
+        # context: "Advisor: [ADD]"   # hidden until the advisor is confirmed
+        venue: { label: "SBP-BRiMS 2026, Springer LNCS", url: "https://doi.org/10.1007/978-3-032-40581-4_11" }
+        description:
+          - Built an end-to-end quantum machine learning pipeline for social and behavioral classification and evaluated four quantum classifiers against classical baselines on two social science datasets, a relationship-quality survey and armed-conflict fatality records, under identical experimental constraints.
+        skills: [python, qiskit, sklearn, qml]
+
+      - id: quantum-dot
+        icon: beaker
+        title: Quantum Dot Emission Analysis
+        dates: "2026"
+        context: "Advisors: Dr. Ignacio Segovia-Dominguez (WVU), Prof. Edward Flagg (WVU Physics)"
+        venue: { label: "Optica 2026, accepted", url: "https://arxiv.org/abs/2606.28624" }
+        description:
+          - Designed spectral features from quantum dot emission measurements and applied unsupervised clustering to identify emission types.
+        skills: [clustering]
+
+      - id: eval-framework
+        icon: beaker
+        title: Evaluation and Diagnostic Framework for Spatiotemporal Forecasting
+        dates: "2025 – Present"
+        context: "Advisors: Dr. Ignacio Segovia-Dominguez, Dr. Vito D'Orazio (WVU)"
+        venue: { label: "SBP-BRiMS 2025, Springer LNCS", url: "https://doi.org/10.1007/978-3-032-07715-8_16" }
+        description:
+          - Developing a comparison framework for grids of probability distributions; preliminary work published at SBP-BRiMS 2025. Journal paper in preparation.
+        skills: [forecasting]
+
+      - id: conflict-forecasting
+        icon: beaker
+        title: Conflict Fatality Forecasting
+        dates: "2024 – 2025"
+        context: "Advisors: Dr. Ignacio Segovia-Dominguez, Dr. Vito D'Orazio (WVU) | DRDC Fast Forward Challenge"
+        description:
+          - Built H2O AutoML models with Tweedie deviance loss for point prediction of armed conflict fatalities and PRIO-grid levels across 1-12 month horizons; derived probabilistic forecasts by parameterizing Tweedie distributions from predicted means.
+        skills: [h2o, automl, forecasting]
+
+      - id: solar-compression
+        icon: beaker
+        title: Multispectral Solar Image Compression
+        dates: "2024 – 2025"
+        context: "Advisor: Dr. Piyush Mehta (WVU) | NASA Goddard Space Flight Center"
+        venue: { label: "IEEE ICMLA 2025", url: "https://arxiv.org/abs/2512.24463" }
+        description:
+          - Developed a graph-based learned compression model for NASA SDO solar imagery using spectral graph embeddings (iSWGE) and spatial graph attention (WSGA-C); on six EUV channels of SDOML, reduced Mean Spectral Information Divergence by 20.15% and improved log-transformed MS-SSIM by 1.62% at comparable bits-per-pixel rates.
+        skills: [python, pytorch, compression, gnn]
+
+      # Not shown for now; uncomment to add back.
+      # - id: wvu-ia
+      #   icon: academic-cap
+      #   title: Instructional Assistant
+      #   dates: "2026"
+      #   context: "West Virginia University | DSCI 101, DSCI 450"
+      #   description: []
+      #   skills: []
+
+  - name: Industry & development
+    entries:
+      - id: nepal-telecom
+        icon: briefcase
+        title: Telecoms Engineer
+        dates: "Oct 2018 – Dec 2023"
+        context: "Nepal Telecom, Nepal"
+        description:
+          - "Network Operations & Automation (2021–2023): configured and optimized the nationwide backbone network; automated device configuration and recurring tasks using Python (Netmiko, Napalm, Nornir) across hundreds of nodes."
+          - "Field Engineering (2018–2021): led teams for installation and configuration of national radio access infrastructure (BTS, NodeB/eNodeB), microwave and optical fiber transmission systems, and associated power systems."
+        skills: [python]
+
+      - id: semantic-frame-search
+        icon: code-bracket
+        title: Semantic Frame Search
+        dates: ""   # [ADD] start date, hidden until known
+        context: "Personal project"
+        venue: { label: "github.com/agyat4/semantic-frame-search", url: "https://github.com/agyat4/semantic-frame-search" }
+        description:
+          - "Work in progress: a local, open-source pipeline that finds video frames matching a natural-language query, using SigLIP image-text retrieval followed by caption-based reranking, and exports ranked frames with timestamps and scores."
+        skills: [python, pytorch, hf, vlm]
+
+      # Not shown for now; uncomment to add back.
+      # - id: subisu
+      #   icon: briefcase
+      #   title: IP Engineer
+      #   dates: "Nov 2016 – Apr 2017"
+      #   context: "Subisu Cablenet Ltd., Nepal"
+      #   description:
+      #     - Maintained DOCSIS access network operations and configurations.
+      #   skills: []
+
+  # Teaching (from the CV), not shown for now; uncomment to add back.
+  # - name: Teaching
+  #   entries:
+  #     - id: ncc-faculty
+  #       icon: academic-cap
+  #       title: Part-time Faculty
+  #       dates: "Oct 2017 – Apr 2018"
+  #       context: "Nepal Commerce Campus, Tribhuvan University, Nepal"
+  #       description:
+  #         - "Computer Graphics: raster/vector graphics, 2D/3D transformations, shading, and rendering."
+  #       skills: []
+  #     - id: logictronix
+  #       icon: academic-cap
+  #       title: Assistant Instructor
+  #       dates: "Apr 2016 – Oct 2016"
+  #       context: "LogicTronix Nepal, Lalitpur, Nepal"
+  #       description:
+  #         - "Digital design course for undergraduates: FPGA tools (Xilinx Vivado, ISE), VHDL, Verilog."
+  #       skills: []
+
+education:
+  - degree: Ph.D. in Electrical Engineering
+    grade: "GPA: 4.0/4.0"
+    institution: West Virginia University, Morgantown, WV
+    dates: Expected December 2027
+  - degree: M.S. in Information and Communication Engineering
+    grade: "83.13%"
+    institution: Tribhuvan University, Institute of Engineering, Nepal
+    dates: April 2020
+  - degree: B.E. in Electronics and Communication Engineering
+    grade: "74.51%"
+    institution: Tribhuvan University, Himalaya College of Engineering, Nepal
+    dates: September 2016
